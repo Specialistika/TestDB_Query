@@ -48,57 +48,57 @@
 
 	Insert Into [Products] 
 	(ProductsName)
-	VALUES ('огурцы'),('лимон'),('колбаса'),('рыба'),('салат'),('выпечка'),('макароны'),('соль'),('апельсины'), ('морковь')
+	VALUES ('Cucumber'),('lemon'),('sausage'),('fish'),('salad'),('baking'),('pasta'),('salt'),('oranges'), ('carrots')
 
 	Insert Into [Kategory] 
 	(KategoryName)
-	VALUES ('овощи'),('фрукты'),('бакалея'),('скоропорт'),('кулинария')
-
+	VALUES ('vegetables'),('fruits'),('groceries'),('perishable foods'),('cooking')
 
 	Insert Into CrossTable 
 	(Id_Kategory, Id_Products)
 	select k.id, p.id
 	from [Kategory] k,
 	[Products] p
-	where k.KategoryName = 'скоропорт'
-	and p.ProductsName in ('колбаса','салат')
+	where k.KategoryName = 'perishable foods'
+	and p.ProductsName in ('sausage','salt')
 
 	Insert Into CrossTable 
 	(Id_Kategory, Id_Products)
 	select k.id as kategory, p.id as products
 	from [Kategory] k,
 	[Products] p
-	where k.KategoryName = 'кулинария'
-	and p.ProductsName in ('салат','выпечка')
+	where k.KategoryName = 'cooking'
+	and p.ProductsName in ('salt','baking')
 
 	Insert Into CrossTable 
 	(Id_Kategory, Id_Products)
 	select k.id as kategory, p.id as products
 	from [Kategory] k,
 	[Products] p
-	where k.KategoryName = 'бакалея'
-	and p.ProductsName in ('соль','макароны')
+	where k.KategoryName = 'groceries'
+	and p.ProductsName in ('salad','pasta')
 
 	Insert Into CrossTable 
 	(Id_Kategory, Id_Products)
 	select k.id as kategory, p.id as products
 	from [Kategory] k,
 	[Products] p
-	where k.KategoryName = 'фрукты'
-	and p.ProductsName in ('лимон','апельсины')
+	where k.KategoryName = 'fruits'
+	and p.ProductsName in ('lemon','oranges')
 
 	Insert Into CrossTable 
 	(Id_Kategory, Id_Products)
 	select k.id as kategory, p.id as products
 	from [Kategory] k,
 	[Products] p
-	where k.KategoryName = 'овощи'
-	and p.ProductsName in ('огурцы','морковь')
+	where k.KategoryName = 'vegetables'
+	and p.ProductsName in ('Cucumber','carrots')
 
 	Insert Into CrossTable 
 	(Id_Kategory, Id_Products)
 	select distinct NULL as kategory, p.id as products
 	from [Kategory] k, [Products] p
-	where p.ProductsName in ('рыба')
+	where p.ProductsName in ('fish')
+
 
 	
